@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "moduleResolution": "NodeNext",
     "lib": ["ES2022"],
     "strict": true,
     "esModuleInterop": true,
@@ -10,8 +10,10 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "dist",
     "rootDir": ".",
-"types": ["node"],
-  }
+    "types": ["node"],
+    "typeRoots": ["./node_modules/@types"],
+    "resolveJsonModule": true
+  },
 }
 
 
