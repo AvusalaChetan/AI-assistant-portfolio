@@ -11,8 +11,13 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
+const FRONTEND_URL = process.env.FRONTEND_URL 
+if(!FRONTEND_URL){
+    throw new Error("FRONTEND_URL is not defined in .env file")
+}
+
 app.use(cors({
-    origin: ["http://localhost:5173", "http://localhost:5173/"],
+    origin: ["http://localhost:5173", FRONTEND_URL],
     credentials: true,
     methods: ["POST", "GET", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]
