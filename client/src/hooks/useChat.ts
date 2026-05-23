@@ -17,7 +17,7 @@ export const useChat = () => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:3000/api/chat", {
+      const res = await fetch("", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ que, history: newMessages }),

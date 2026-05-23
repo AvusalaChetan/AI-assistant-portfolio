@@ -4,10 +4,9 @@ type Prop = {
 
 const Header = ({isServerConnect}: Prop) => {
   return (
-    <header className="bg-zinc-800 font-display shadow-2xl flex h-[72px] shrink-0 items-center justify-around ">
+    <header className="bg-zinc-800 font-display shadow-2xl flex h-18 shrink-0 items-center justify-around ">
       <div className="left flex items-center justify-start gap-4 px-4 h-full w-[70%]">
         <div className="imgcontainer rounded-full w-10 h-10 bg-amber-700 flex items-center justify-center">
-          {/* <img src="" className='w-full h-full' alt="" /> */}
           <p>AC</p>
         </div>
 
@@ -26,6 +25,7 @@ const Header = ({isServerConnect}: Prop) => {
         <span className="sr-only">
           {isServerConnect ? "online" : "offline"}
         </span> */}
+        {isServerConnect && <></>}
       </div>
     </header>
   );
