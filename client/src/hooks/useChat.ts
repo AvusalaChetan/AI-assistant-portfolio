@@ -5,6 +5,12 @@ type Message = {
   content: string;
 };
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL 
+
+if(!BACKEND_URL){
+    throw new Error("VITE_BACKEND_URL is not defined in .env file")
+}
+
 export const useChat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
@@ -17,7 +23,7 @@ export const useChat = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/chat`, {
+      const res = await fetch(`${BACKEND_URL}/chat`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({que, history: newMessages}),
