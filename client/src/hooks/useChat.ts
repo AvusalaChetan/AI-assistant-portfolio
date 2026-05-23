@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 
 type Message = {
   role: "user" | "assistant";
@@ -12,19 +12,22 @@ export const useChat = () => {
   const sendMessage = async (que: string) => {
     if (!que.trim()) return;
 
-    const newMessages: Message[] = [...messages, { role: "user", content: que }];
+    const newMessages: Message[] = [...messages, {role: "user", content: que}];
     setMessages(newMessages);
     setLoading(true);
 
     try {
-      const res = await fetch("", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/chat`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ que, history: newMessages }),
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({que, history: newMessages}),
       });
 
       const data = await res.json();
-      setMessages([...newMessages, { role: "assistant", content: data.aiResponse }]);
+      setMessages([
+        ...newMessages,
+        {role: "assistant", content: data.aiResponse},
+      ]);
     } catch (error) {
       console.log((error as Error).message);
     } finally {
@@ -32,5 +35,5 @@ export const useChat = () => {
     }
   };
 
-  return { messages, loading, sendMessage };
+  return {messages, loading, sendMessage};
 };

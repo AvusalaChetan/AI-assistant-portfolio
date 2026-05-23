@@ -20,12 +20,10 @@ export async function askAI(messages: Message[]): Promise<string> {
       max_tokens: 2000,
     });
 
-    // console.log("askAI response.usage:", response?.usage);
 
     const raw = response.choices[0]?.message?.content ?? "Sorry, I couldn't respond.";
     return stripThinking(raw);
   } catch (err) {
-    console.error("askAI error:", err);
     throw err;
   }
 }

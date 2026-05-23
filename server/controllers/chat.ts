@@ -4,7 +4,6 @@ import { askAI } from "../services/ai";
 
 export const chat = async (req: Request, res: Response) => {
   const { que } = req.body;
-console.log("Received question:", que); 
   if (!que || typeof que !== "string" || que.trim() === "") {
     return res.status(400).json({ error: "Invalid question provided" });
   }
