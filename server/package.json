@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "tsx watch server.js",
-    "build": "tsc -p tsconfig.json",
+    "build": "pnpm install && tsc -p tsconfig.json",
     "start": "node dist/server.js"
   },
   "keywords": [],
@@ -14,7 +14,6 @@
   "packageManager": "pnpm@10.33.0",
   "devDependencies": {
     "@types/cors": "^2.8.19",
-    "@types/dotenv": "^8.2.3",
     "@types/express": "^5.0.6",
     "@types/node": "^22.10.4",
     "tsx": "^4.22.3",
