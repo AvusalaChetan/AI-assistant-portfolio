@@ -1,0 +1,28 @@
+Frontend (React)
+     │
+     │  POST /api/chat
+     │  { messages: [...] }
+     ▼
+Express Route (/api/chat)
+     │
+     │  passes messages + portfolioContext as system prompt
+     ▼
+Claude API (claude-sonnet-4-20250514)
+     │
+     │  returns HTML (for projects/skills)
+     │  or plain text (for normal questions)
+     ▼
+Express sends response back
+     │
+     ▼
+Frontend detects HTML or text
+     │
+     ├── HTML → renders as cards inside chat bubble
+     └── text → renders as normal message
+
+     server/
+├── src/
+│   ├── server.ts        ← express app setup
+│   ├── routes/
+│   │   └── chat.ts      ← /api/chat route
+│   └── context.ts       ← portfolioContext string + projects data
