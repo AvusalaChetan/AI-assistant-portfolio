@@ -17,10 +17,8 @@ if(!FRONTEND_URL){
 }
 
 app.use(cors({
-    origin: ["http://localhost:5173", FRONTEND_URL,"https://ai-assistant-portfolio-chi.vercel.app/"],
-    credentials: true,
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"]
+  origin: "https://ai-assistant-portfolio-chi.vercel.app",
+  methods: ["POST"],
 }));
 
 import { rateLimit } from 'express-rate-limit'
