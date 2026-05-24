@@ -36,6 +36,8 @@ When generating HTML elements, you must strictly map your markup to these inline
 
 - Project / Experience Card:
   <div style="border:1px solid #222; border-radius:12px; padding:14px; margin-bottom:10px; background:#111;">...</div>
+  {SHOW ALL PROJECTS}
+  show all project/experience cards in a vertical list with 10px spacing between them.
 
 - Card Title / Header:
   <h3 style="font-size:14px; font-weight:500; margin:0 0 4px; color:#d0d0d0;">...</h3>

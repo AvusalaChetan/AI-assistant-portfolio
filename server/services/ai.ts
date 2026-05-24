@@ -17,7 +17,7 @@ export async function askAI(messages: Message[]): Promise<string> {
       model: "qwen/qwen3-32b",
       messages: [{ role: "system", content: portfolioContext }, ...messages],
       temperature: 0.7,
-      max_tokens: 2000,
+      max_tokens:2500,
     });
 
 

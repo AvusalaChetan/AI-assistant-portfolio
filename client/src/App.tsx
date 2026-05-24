@@ -1,43 +1,60 @@
-import {useState} from "react";
+import { useState } from "react";
 import Header from "./components/Header";
-import {useChat} from "./hooks/useChat";
+import { useChat } from "./hooks/useChat";
 import MgsBox from "./components/MgsBox";
 import Input from "./components/Input";
 
 const App = () => {
   const [isServerConnect] = useState(true);
-
-  const {messages, loading, sendMessage} = useChat();
+  const { messages, loading, sendMessage } = useChat();
   const [que, setQue] = useState("");
 
   const handleSubmit = async () => {
-    await sendMessage(que);
+    const trimmed = que.trim();
+    if (!trimmed || loading) return;
+    await sendMessage(trimmed);
     setQue("");
   };
 
+  const handleSuggestion = (text: string) => {
+    setQue(text);
+  };
+
   return (
-    <>
-      <main className="dot-grid h-screen w-screen overflow-x-hidden p-4 ">
-        <section
-          id="container"
-          className="overflow-hidden flex h-full w-full flex-col rounded-tr-2xl rounded-tl-2xl container-rounded"
-        >
-          <Header isServerConnect={isServerConnect} />
+    <main
+      className="app-bg"
+      style={{
+        height: "100dvh",
+        width: "100vw",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "16px",
+        overflow: "hidden",
+      }}
+    >
+      <section
+        id="chat-container"
+        className="chat-container"
+        style={{ width: "100%", maxWidth: "780px", height: "100%", maxHeight: "860px" }}
+        aria-label="AI Chat interface"
+      >
+        <Header isServerConnect={isServerConnect} />
 
-          <hr className="text-gray-500 relative" />
+        <MgsBox
+          messages={messages}
+          loading={loading}
+          onSuggestion={handleSuggestion}
+        />
 
-          <div className="mt-2 flex flex-1 min-h-0 w-full flex-col border border-zinc-700">
-            <MgsBox messages={messages} />
-            <Input
-              que={que}
-              setQue={setQue}
-              loading={loading}
-              submit={handleSubmit}
-            />
-          </div>
-        </section>
-      </main>
-    </>
+        <Input
+          que={que}
+          setQue={setQue}
+          loading={loading}
+          submit={handleSubmit}
+        />
+      </section>
+    </main>
   );
 };
 

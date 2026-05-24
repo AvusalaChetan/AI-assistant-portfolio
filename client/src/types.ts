@@ -1,8 +1,10 @@
 export type Message = {
-  role: 'assistant' | 'user' ;
+  role: "assistant" | "user";
   content: string;
-}
+};
 
 export type MgsBoxProps = {
   messages: Message[];
-}
+  loading?: boolean;
+  onSuggestion?: (text: string) => void;
+};
