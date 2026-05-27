@@ -17,7 +17,7 @@ if(!FRONTEND_URL){
 }
 
 app.use(cors({
-  origin: "https://ai-assistant-portfolio-chi.vercel.app",
+  origin: ["https://ai-assistant-portfolio-chi.vercel.app",'http://localhost:5173'],
   methods: ["POST"],
 }));
 
