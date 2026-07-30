@@ -5,7 +5,7 @@ import MgsBox from "./components/MgsBox";
 import Input from "./components/Input";
 
 const App = () => {
-  const [isServerConnect] = useState(true);
+
   const { messages, loading, sendMessage } = useChat();
   const [que, setQue] = useState("");
 
@@ -39,7 +39,7 @@ const App = () => {
         style={{ width: "100%", maxWidth: "780px", height: "100%", maxHeight: "860px" }}
         aria-label="AI Chat interface"
       >
-        <Header isServerConnect={isServerConnect} />
+        <Header />
 
         <MgsBox
           messages={messages}

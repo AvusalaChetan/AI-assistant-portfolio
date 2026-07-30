@@ -1,25 +1,5 @@
  export const  projects = [
   {
-    "id": 1,
-    "title": "Weather  App",
-    "description": "A clean and intuitive weather application with location-based forecasts and interactive maps.",
-    "image": "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800",
-    "technologies": ["HTML", "CSS3",'JavaScript', "OpenWeather API"],
-    "category": "frontend",
-    "demoUrl": "https://darling-meringue-393b73.netlify.app/",
-    "githubUrl": "https://github.com/AvusalaChetan/Weather-app",
-    "featured": true,
-    "status": "completed",
-    "startDate": "2024-04",
-    "endDate": "2024-04",
-    "highlights": [
-      "Integration with OpenWeather API",
-      "Geolocation-based weather",
-      "current weather is display"
-    ]
-  },
-
-  {
     "id": 2,
     "title": "express-jetstart CLI",
     "description": "A high-performance command-line interface for rapid Express.js project scaffolding with pre-configured architecture.",
@@ -45,34 +25,5 @@
       "Integrated error handling and real-time installation feedback"
     ]
   },
-  {
-    "id": 3,
-    "title": "Agentic Support Hub",
-    "description": "Agentic Support Hub: is an advanced, real-time AI-powered customer support platform tailored for food delivery services. It enables fast, efficient communication between customers and support agents through live chat, intelligent order tracking, automated refund processing, and comprehensive user history management.",
-    "image": "/images/Agentic-Support-Hub.png",
-    "technologies": [
-      "MongoDB",
-      "Node.js",
-      "React.js",
-      "Express.js",
-      "TypeScript",
-      "Vite",
-      "Tailwind CSS",
-      "Vercel"
-    ],
-    "category": "FullStack",
-    "demoUrl": "https://agentic-support-hub.vercel.app/",
-    "githubUrl": "https://github.com/AvusalaChetan/Agentic-Support-Hub",
-    "featured": true,
-    "status": "completed",
-    "startDate": "2024-04",
-    "endDate": "2024-05",
-    "highlights": [
-      "AI Agent integration using Grok (GROQ SDK) with Function Calling",
-      "Real-time AI reasoning transparency",
-      "Automated refund processing based on custom business logic (45-minute rule)",
-      "Real-time communication and driver tracking using Socket.io",
-      "Full-stack implementation with React 19, TypeScript, and MongoDB"
-    ]
-  }
+ 
 ]

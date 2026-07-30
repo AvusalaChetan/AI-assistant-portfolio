@@ -3,7 +3,7 @@ import { askAI } from "../services/ai";
 
 
 export const chat = async (req: Request, res: Response) => {
-  const { que } = req.body;
+  const { que, history } = req.body;
   if (!que || typeof que !== "string" || que.trim() === "") {
     return res.status(400).json({ error: "Invalid question provided" });
   }
@@ -14,7 +14,12 @@ export const chat = async (req: Request, res: Response) => {
     });
 
   try {
-    const aiResponse = await askAI([{ role: "user", content: que.trim() }]);
+
+    const messages = Array.isArray(history) && history.length > 0
+      ? history
+      : [{ role: "user", content: que.trim() }];
+
+    const aiResponse = await askAI(messages);
     return res.status(200).json({ aiResponse });
   } catch (error) {
     if (error instanceof Error) {

@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "tsx watch server.js",
+    "dev": "tsx watch server.ts",
     "build": "pnpm install --no-frozen-lockfile && tsc -p tsconfig.json",
     "start": "node dist/server.js"
   },

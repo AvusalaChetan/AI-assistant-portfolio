@@ -1,8 +1,5 @@
-type Prop = {
-  isServerConnect: boolean;
-};
 
-const Header = ({ isServerConnect }: Prop) => {
+const Header = () => {
   return (
     <header className="chat-header">
       {/* ── Left: Avatar + Info ── */}
@@ -29,19 +26,6 @@ const Header = ({ isServerConnect }: Prop) => {
       </div>
 
       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-        
-
-  
-        {isServerConnect && (
-          <div
-            className="status-badge"
-            role="status"
-            aria-label="Server connected"
-          >
-            <span className="status-dot" aria-hidden="true" />
-            <span>Online</span>
-          </div>
-        )}
       </div>
     </header>
   );

@@ -14,21 +14,15 @@ type Message = {
 export async function askAI(messages: Message[]): Promise<string> {
   try {
     const response = await client.chat.completions.create({
-      model: "qwen/qwen3-32b",
+      model: "llama-3.1-8b-instant",
       messages: [{ role: "system", content: portfolioContext }, ...messages],
       temperature: 0.7,
-      max_tokens:2500,
+      max_tokens: 800,
     });
-
-
-    const raw = response.choices[0]?.message?.content ?? "Sorry, I couldn't respond.";
-    return stripThinking(raw);
+    
+    return response.choices[0]?.message?.content ?? "Sorry, I couldn't respond.";
   } catch (err) {
     throw err;
   }
 }
-
-
-function stripThinking(text: string): string {
-  return text.replace(/<think>[\s\S]*?<\/think>/g, "").trim();
-}
+
