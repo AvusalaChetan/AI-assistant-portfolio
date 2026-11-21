@@ -1,13 +1,11 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
-import dotenv from "dotenv";
-
+ 
 
 // importing routers
 import chatRouter from "./routers/chat";
 
-dotenv.config();
-const app = express();
+ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 

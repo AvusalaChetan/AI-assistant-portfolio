@@ -1,23 +1,7 @@
-import {projects} from "./projects";
-
-interface About {
-  name: string;
-  role: string;
-  location: string;
-  email: string[];
-  phone: string;
-  github: string;
-  linkedin: string;
-  education: {
-    degree: string;
-    college: string;
-    year: string;
-  };
-  summary: string;
-  skills: string[];
-  projects?: typeof projects;  
-  certifications: Array<{name: string; issuer: string; date: string}>;
-}
+import { About } from "../types/types";
+import { projects } from "./projects";
+ 
+ 
 
 export const aboutMe: About = {
   name: "Avusala Chetan",
