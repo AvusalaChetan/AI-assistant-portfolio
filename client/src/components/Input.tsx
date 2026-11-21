@@ -8,6 +8,10 @@ type InputProps = {
 };
 
 const Input = ({ que, setQue, loading, submit }: InputProps) => {
+
+  if (!que.trim()) {
+    console.log('no que')
+  }
   const canSend = que.trim().length > 0 && !loading;
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -64,13 +68,12 @@ const Input = ({ que, setQue, loading, submit }: InputProps) => {
           onClick={submit}
           disabled={!canSend}
           aria-label={loading ? "Sending…" : "Send message"}
-          className={`send-btn ${
-            loading
+          className={`send-btn ${loading
               ? "send-btn-loading"
               : canSend
-              ? "send-btn-active"
-              : "send-btn-disabled"
-          }`}
+                ? "send-btn-active"
+                : "send-btn-disabled"
+            }`}
         >
           {loading ? (
             <i className="ri-loader-4-line" aria-hidden="true" style={{ fontSize: "15px", animation: "spin 1s linear infinite" }} />
@@ -82,7 +85,7 @@ const Input = ({ que, setQue, loading, submit }: InputProps) => {
 
       <p className="input-hint">
         <i className="ri-corner-down-left-line" aria-hidden="true" style={{ fontSize: "10px", marginRight: "3px" }} />
-        Enter to send 
+        Enter to send
       </p>
 
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>

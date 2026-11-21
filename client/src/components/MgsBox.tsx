@@ -1,36 +1,17 @@
-import DOMPurify from "dompurify";
-import { useEffect, useRef } from "react";
+
+import { memo, useEffect, useRef } from "react";
 import type { Message, MgsBoxProps } from "../types";
-import { nanoid } from "nanoid";
+import Markdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import rehypeHighlight from 'rehype-highlight'
+import 'highlight.js/styles/github-dark.css'
+
 const SUGGESTIONS = [
   "What projects have you built?",
   "What's your tech stack?",
   "How can I contact you?",
 ];
 
-const sanitizeOptions = {
-  ALLOWED_TAGS: [
-    "b",
-    "i",
-    "em",
-    "strong",
-    "p",
-    "br",
-    "ul",
-    "ol",
-    "li",
-    "a",
-    "span",
-    "div",
-    "h1",
-    "h2",
-    "h3",
-    "h4",
-    "aside",
-    "heading",
-  ],
-  ALLOWED_ATTR: ["href", "title", "rel", "target", "style"],
-};
 
 type MgsBoxPropsExtended = MgsBoxProps & {
   loading?: boolean;
@@ -71,30 +52,22 @@ const MgsBox = ({ messages, loading, onSuggestion }: MgsBoxPropsExtended) => {
         </div>
       ) : (
         <>
-          {messages.map((message: Message) => {
-            console.log(message.content, message.role);
+          {messages.map((message: Message, index) => {
+
             return (
-              <>
+              <div key={`${message.role}-${index}`}>
                 {message.role === "assistant" ? (
-                  <div key={nanoid()} className="msg-ai">
-                    <div className="msg-ai-content">
-                      <div
-                        className="ai-html-content"
-                        dangerouslySetInnerHTML={{
-                          __html: DOMPurify.sanitize(
-                            message.content,
-                            sanitizeOptions,
-                          ),
-                        }}
-                      />
+                  <div className="text-sm">
+                    <div className="prose prose-invert prose-sm max-w-none text-sm">
+                      <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
+                        {message.content}
+                      </Markdown>
                     </div>
                   </div>
                 ) : (
-                  <div key={nanoid(10)} className="msg-user">
-                    <div className="msg-user-bubble">{message.content}</div>
-                  </div>
+                  <div className="msg-user-bubble float-end">{message.content}</div>
                 )}
-              </>
+              </div>
             );
           })}
 
@@ -141,4 +114,4 @@ const LogoSvg = () => (
   </svg>
 );
 
-export default MgsBox;
+export default memo(MgsBox);

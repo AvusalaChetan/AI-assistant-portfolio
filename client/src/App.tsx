@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Header from "./components/Header";
 import { useChat } from "./hooks/useChat";
 import MgsBox from "./components/MgsBox";
@@ -8,7 +8,6 @@ const App = () => {
 
   const { messages, loading, sendMessage } = useChat();
   const [que, setQue] = useState("");
-
   const handleSubmit = async () => {
     const trimmed = que.trim();
     if (!trimmed || loading) return;
@@ -16,13 +15,13 @@ const App = () => {
     setQue("");
   };
 
-  const handleSuggestion = (text: string) => {
+  const handleSuggestion = useCallback((text: string) => {
     setQue(text);
-  };
+  }, []);
 
   return (
     <main
-      className="app-bg"
+
       style={{
         height: "100dvh",
         width: "100vw",

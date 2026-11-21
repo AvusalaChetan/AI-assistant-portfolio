@@ -14,10 +14,10 @@ type Message = {
 export async function askAI(messages: Message[]): Promise<string> {
   try {
     const response = await client.chat.completions.create({
-      model: "llama-3.1-8b-instant",
+      model: "openai/gpt-oss-120b",
       messages: [{ role: "system", content: portfolioContext }, ...messages],
       temperature: 0.7,
-      max_tokens: 800,
+      max_tokens: 2500,
     });
     
     return response.choices[0]?.message?.content ?? "Sorry, I couldn't respond.";
@@ -25,4 +25,4 @@ export async function askAI(messages: Message[]): Promise<string> {
     throw err;
   }
 }
-
+

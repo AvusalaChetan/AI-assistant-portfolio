@@ -42,7 +42,7 @@ export const useChat = () => {
     } catch (error) {
       setMessages([
         ...newMessages,
-        { role: "assistant", content: "Server is not responding. Please try again later." },
+        { role: "assistant", content: `Server is not responding. Please try again later. ${(error as Error).message}` },
       ]);
     } finally {
       setLoading(false);
