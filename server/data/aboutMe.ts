@@ -1,15 +1,13 @@
-import { About } from "../types/types";
-import { projects } from "./projects";
- 
- 
+import {About} from "../types/types";
+import {projects} from "./projects";
 
 export const aboutMe: About = {
   name: "Avusala Chetan",
-  role: "AI MERN Stack Developer",
+  role: "MERN Stack Developer",
   location: "Hyderabad, India",
-  email: ["avusalachetan@gmail.com", "chetanavusala@gmail.com"],
+  email: ["avusalachetan@gmail.com"],
   phone: "+91 6303689310",
-  github: "https://github.com/avusalachetan",
+  github: "https://github.com/AvusalaChetan",
   linkedin: "https://linkedin.com/in/avusalachetan",
   education: {
     degree: "B.Tech in Electronics and Communication Engineering",
@@ -17,22 +15,52 @@ export const aboutMe: About = {
     year: "2023-2027",
   },
   summary:
-    " MERN Stack Developer specializing in scalable web applications with real-time communication and Generative AI integration. Focused on building products that are functional, maintainable, and future-proof.",
+    "Final-year ECE student and MERN Stack Developer skilled in React, TypeScript, Node.js, Express.js, and MongoDB. Published express-jetstart, an open-source Express CLI on npm with 1,300+ downloads. Open-source contributor to the mx-icons React icon library. Seeking a MERN/Full Stack Developer internship to contribute to real-world projects.",
 
-  skills: ['HTML','CSS3','Tailwindcss','JavaScript','React.js','Redux-Toolkit','Express.js','Node.js','MongoDB','Git','GitHub'],
+  skills: [
+    "JavaScript",
+    "TypeScript",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "REST APIs",
+    "JWT Auth",
+    "HTML",
+    "CSS",
+    "React.js",
+    "Redux Toolkit",
+    "Tailwind CSS",
+    "GSAP (basic)",
+    "Git",
+    "GitHub",
+    "NPM",
+    "Postman",
+    "Cloudinary",
+  ],
 
   projects: projects,
 
   certifications: [
     {
       name: "Full Stack Development (MERN)",
-      issuer: "GeeksForGeeks",
-      date: "January 2026",
+      issuer: "Sheryians Coding School",
+      date: "2026 (In Progress)",
     },
     {
-      name: "C Programming Language",
-      issuer: "Coursera / Duke University",
-      date: "November 2023",
+      name: "Entrepreneurship-cum-Skill Development Programme (E-SDP) on Emerging IoT Applications",
+      issuer: "MSME Tool Room (CITD), Hyderabad",
+      date: "Jul-Sep 2026",
+    },
+  ],
+  achivements: [
+    {
+      name: "mx-icons",
+      type: "Open-Source Contribution",
+      description:
+        "Contributed the JavaScript icon in 6 style variants as React components to the mx-icons React icon library, registered in the icon index and metadata.",
+      contribution: "PR #59 (merged), shipped in release v1.1.2",
+      techStack: ["React", "JavaScript"],
+      github: "https://github.com/ig-imanish/mx-icons/pull/59", 
     },
   ],
 };

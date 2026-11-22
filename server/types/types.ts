@@ -22,4 +22,5 @@ export interface About {
   skills: string[];
   projects?: typeof projects;
   certifications: Array<{name: string; issuer: string; date: string}>;
+  achivements:Array<unknown>
 }
